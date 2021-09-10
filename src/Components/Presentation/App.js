@@ -1,6 +1,10 @@
+import NavBar from './NavBar';
+import Footer from './Footer';
+
 const App = () => (
   <div className="app-div">
-    <h1>app component</h1>
+    <NavBar />
+    <Footer />
   </div>
 );
 
