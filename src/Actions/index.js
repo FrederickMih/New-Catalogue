@@ -16,23 +16,23 @@ const searchArticle = (keyword) => (dispatch) => {
 };
 
 const fetchArticles = (keyword, page = 1) => (dispatch) => {
-  const req1 = new Request(`https://api.currentsapi.services/v1/search?keywords=${keyword}&language=en&apiKey=${apiKey}&page=${page}`);
+  const req1 = new Request(`https://api.currentsapi.services/v1/search?keywords=us&language=en&apiKey=${apiKey}&page=${page}`);
   axios.get(req1)
     .then((response) => dispatch({
       type: FETCH_ARTICLES,
-      payload: response.data,
+      payload: response.news,
     }))
     .catch((err) => (
       console.log(err)
     ));
 };
 
-const fetchMoreArticles = (id) => (dispatch) => {
-  const req2 = new Request(`https://api.currentsapi.services/v1/latest-news?language=us&apiKey=${apiKey}&i=${id}`);
+const fetchMoreArticles = () => (dispatch) => {
+  const req2 = new Request('https://api.currentsapi.services/v1/search?keywords=Amazon&language=en&apiKey=Q2yqQDBUwiAJgU0GhygY5N5q4rLITbMzOSFIt3yOT8chT-pr');
   axios.get(req2)
     .then((response) => dispatch({
       type: FETCH_MORE_ARTICLES,
-      payload: response.data,
+      payload: response.news,
     }))
     .catch((err) => (console.log(err)));
 };
