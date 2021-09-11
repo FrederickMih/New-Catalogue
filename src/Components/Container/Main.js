@@ -19,10 +19,11 @@ const Main = (props) => {
 };
 Main.propTypes = {
   fetchMoreArticles: PropTypes.func.isRequired,
+  // article: PropTypes.string.isRequired,
 };
 
 Main.defaultProps = {
-   article []
-}
+  // article: [],
+};
 
 export default Main;
