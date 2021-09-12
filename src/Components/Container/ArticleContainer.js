@@ -6,15 +6,14 @@ import Article from '../Presentation/Article';
 const ArticleContainer = (props) => {
   const { articles, filter } = props;
 
-  const filterArticles = (articles, filter) => (filter === 'All' ? articles.news
-    : articles.news.filter((article) => article.category === filter));
+  const filterArticles = (articles, filter) => (filter === 'All' ? articles.news : articles.news.filter((article) => article.category === filter));
 
   const filteredArticles = filterArticles(articles, filter);
 
   console.log(articles);
 
   let content = '';
-  content = articles.Response === 'True'
+  content = articles.status === 'ok'
     ? filteredArticles.map((article) => <Article key={article.id} article={article} />) : '';
   return (
     <div className="row">

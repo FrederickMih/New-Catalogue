@@ -22,7 +22,7 @@ const SearchArticle = (props) => {
     if (props.keyword === '') {
       props.fetchArticles('technology');
     } else {
-      props.fetchFilms(props.keyword);
+      props.fetchArticles(props.keyword);
     }
     props.setLoading();
   };

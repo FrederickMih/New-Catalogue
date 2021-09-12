@@ -15,12 +15,11 @@ const searchArticle = (keyword) => (dispatch) => {
   });
 };
 
-const fetchArticles = (keyword, page = 1) => (dispatch) => {
-  const req1 = new Request(`https://api.currentsapi.services/v1/search?keywords=us&language=en&apiKey=${apiKey}&page=${page}`);
-  axios.get(req1)
+const fetchArticles = (keyword) => (dispatch) => {
+  axios.get(`https://api.currentsapi.services/v1/search?keywords=${keyword}&language=en&apiKey=${apiKey}`)
     .then((response) => dispatch({
       type: FETCH_ARTICLES,
-      payload: response.news,
+      payload: response.data,
     }))
     .catch((err) => (
       console.log(err)

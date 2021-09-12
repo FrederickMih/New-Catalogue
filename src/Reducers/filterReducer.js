@@ -1,7 +1,7 @@
 import { FILTER_ARTICLE } from '../Actions';
 
 export const initialState = {
-  filter: 'News',
+  filter: 'All',
 };
 
 const filterReducer = (state = initialState, action) => {
