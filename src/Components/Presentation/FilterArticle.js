@@ -13,12 +13,12 @@ const FilterArticle = (props) => {
         aria-label="Default select example"
       >
         {
-          categories.map((genre) => (
+          categories.map((cat) => (
             <option
-              key={genre}
-              value={genre}
+              key={cat}
+              value={cat}
             >
-              {genre}
+              {cat}
             </option>
           ))
         }
