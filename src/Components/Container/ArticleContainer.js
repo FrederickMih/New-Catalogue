@@ -16,8 +16,10 @@ const ArticleContainer = (props) => {
   content = articles.status === 'ok'
     ? filteredArticles.map((article) => <Article key={article.id} article={article} />) : '';
   return (
-    <div className="row">
-      {content}
+    <div className="article-container">
+      <div className="row">
+        {content}
+      </div>
     </div>
   );
 };

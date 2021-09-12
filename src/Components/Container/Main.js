@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SearchArticle from './SearchArticle';
 import ArticleContainer from './ArticleContainer';
 import { fetchArticles } from '../../Actions';
+import '../../styles/Main.css';
 
 const Main = (props) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const Main = (props) => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container article-container">
       <SearchArticle />
       <ArticleContainer />
     </div>
