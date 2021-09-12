@@ -1,29 +1,32 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchMoreArticles } from '../../Actions';
+import { connect } from 'react-redux';
+import ArticleContainer from './ArticleContainer';
+import { fetchArticles } from '../../Actions';
 
 const Main = (props) => {
-  const articles = useSelector((state) => state.articles);
   useEffect(() => {
-    props.fetchMoreArticles();
-  });
+    props.fetchArticles(props);
+  }, []);
 
   return (
-    <div>
-      {articles ? articles.map((article) => (
-        <div key={article.title} article={article} />
-      )) : 'Please wait'}
+    <div className="container">
+      <ArticleContainer />
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  article: state.articles,
+});
+
 Main.propTypes = {
-  fetchMoreArticles: PropTypes.func.isRequired,
-  // article: PropTypes.string.isRequired,
+  fetchArticles: PropTypes.func.isRequired,
 };
 
-Main.defaultProps = {
-  // article: [],
-};
+// Main.defaultProps = {
+//   loading: false,
+//   text: false,
+// };
 
-export default Main;
+export default connect(mapStateToProps, { fetchArticles })(Main);
