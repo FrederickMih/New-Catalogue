@@ -26,14 +26,16 @@ const fetchArticles = (keyword) => (dispatch) => {
     ));
 };
 
-const fetchMoreArticles = () => (dispatch) => {
-  const req2 = new Request('https://api.currentsapi.services/v1/search?keywords=Amazon&language=en&apiKey=Q2yqQDBUwiAJgU0GhygY5N5q4rLITbMzOSFIt3yOT8chT-pr');
+const fetchMoreArticles = (id) => (dispatch) => {
+  const req2 = new Request(`https://api.currentsapi.services/v1/search?keywords=Amazon&language=en&apiKey=${apiKey}&i=${id}`);
   axios.get(req2)
     .then((response) => dispatch({
       type: FETCH_MORE_ARTICLES,
-      payload: response.news,
+      payload: response.data,
     }))
-    .catch((err) => (console.log(err)));
+    .catch((err) => (
+      console.log(err)
+    ));
 };
 
 const setLoading = () => ({
